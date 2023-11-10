@@ -32,6 +32,4 @@ function operate() {
     }
 }
 
-console.log(operate());
-
 // create an object for operator : function
