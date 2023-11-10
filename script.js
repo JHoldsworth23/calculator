@@ -1,18 +1,7 @@
-function add(numA, numB) {
-    return numA + numB;
-}
-
-function subtract(numA, numB) {
-    return numA - numB;
-}
-
-function multiply(numA, numB) {
-    return numA * numB;
-}
-
-function divide(numA, numB) {
-    return numA / numB;
-}
+const add = (numA, numB) => numA + numB;
+const subtract = (numA, numB) => numA - numB;
+const multiply = (numA, numB) => numA * numB;
+const divide = (numA, numB) => numA / numB;
 
 // user input in the calculator
 let firstOperand = 2;
@@ -31,4 +20,3 @@ const calculation = {
 function operate() {
     return calculation[operator];
 }
-
