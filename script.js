@@ -19,17 +19,16 @@ let firstOperand = 2;
 let operator = "+";
 let secondOperand = 2;
 
+// create an object for operator : function
+const calculation = {
+    "+": add(firstOperand, secondOperand),
+    "-": subtract(firstOperand, secondOperand),
+    "*": multiply(firstOperand, secondOperand),
+    "/": divide(firstOperand, secondOperand)
+};
+
 // create an "operate" function to call the function 
 function operate() {
-    if (operator === "+") {
-        return add(firstOperand, secondOperand);
-    } else if (operator === "-") {
-        return subtract(firstOperand, secondOperand);
-    } else if (operator === "*") {
-        return multiply(firstOperand, secondOperand);
-    } else {
-        return divide(firstOperand, secondOperand);
-    }
+    return calculation[operator];
 }
 
-// create an object for operator : function
