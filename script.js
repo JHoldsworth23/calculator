@@ -11,6 +11,13 @@ numberBtns.forEach(btn => (
     })
 ));
 
+const operatorBtns = document.querySelectorAll(".operator-btn");
+operatorBtns.forEach(btn => (
+    btn.addEventListener('click', () => {
+        equation.textContent += ` ${btn.textContent} `
+    })
+));
+
 // user input in the calculator
 let firstOperand = 2;
 let operator = "+";
