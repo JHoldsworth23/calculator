@@ -3,6 +3,14 @@ const subtract = (numA, numB) => numA - numB;
 const multiply = (numA, numB) => numA * numB;
 const divide = (numA, numB) => numA / numB;
 
+const equation = document.querySelector(".equation")
+const numberBtns = document.querySelectorAll(".btn");
+numberBtns.forEach(btn => (
+    btn.addEventListener('click', () => {
+        equation.textContent += btn.id;
+    })
+));
+
 // user input in the calculator
 let firstOperand = 2;
 let operator = "+";
