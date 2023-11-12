@@ -8,7 +8,7 @@ const previousEquation = document.querySelector(".previous-answer");
 const numberBtns = document.querySelectorAll(".btn");
 numberBtns.forEach(btn => (
     btn.addEventListener('click', () => {
-        equation.textContent += btn.id;
+        equation.textContent += btn.textContent;
     })
 ));
 
