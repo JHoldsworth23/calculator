@@ -29,6 +29,12 @@ let secondOperand;
 
 // create an "operate" function to call the function 
 function operate() {
+    const calculation = {
+        "+": add(firstOperand, secondOperand),
+        "-": subtract(firstOperand, secondOperand),
+        "x": multiply(firstOperand, secondOperand),
+        "÷": divide(firstOperand, secondOperand)
+    };
     return calculation[operator];
 }
 
@@ -37,12 +43,6 @@ function calculate() {
     firstOperand = parseFloat(equationArray[0]);
     operator = equationArray[1];
     secondOperand = parseFloat(equationArray[2]);
+    const answer = operate();
+    console.log(answer);
 }
-
-// create an object for operator : function
-const calculation = {
-    "+": add(firstOperand, secondOperand),
-    "-": subtract(firstOperand, secondOperand),
-    "x": multiply(firstOperand, secondOperand),
-    "÷": divide(firstOperand, secondOperand)
-};
