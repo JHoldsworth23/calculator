@@ -43,6 +43,6 @@ function calculate() {
     firstOperand = parseFloat(equationArray[0]);
     operator = equationArray[1];
     secondOperand = parseFloat(equationArray[2]);
-    const answer = operate();
-    console.log(answer);
+    previousEquation.textContent = `${equation.textContent} = ${operate()}`;
+    equation.textContent = '';
 }
