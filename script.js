@@ -22,6 +22,11 @@ operatorBtns.forEach(btn => (
 const equalBtn = document.querySelector(".answer-btn");
 equalBtn.addEventListener('click', calculate);
 
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener('click', () => {
+    equation.textContent = '';
+})
+
 // user input in the calculator
 let firstOperand;
 let operator;
