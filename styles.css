@@ -21,3 +21,20 @@ body {
     justify-content: center;
     align-items: flex-end;
 }
+
+.number-display {
+    font-size: 40px;
+    font-weight: bold;
+    color: #002349;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.equation-display {
+    font-size: 30px;
+    font-weight: bold;
+    color: #002349;
+    padding: 10px 20px 5px;
+    margin: 0;
+    opacity: 0.5;
+}
