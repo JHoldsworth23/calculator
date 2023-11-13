@@ -3,19 +3,24 @@ let secondOperand = '';
 let currentOperator = '';
 let shouldReset = false;
 
-const equation = document.querySelector(".equation");
+const currentEquation = document.querySelector(".equation");
 const answer = document.querySelector(".answer");
 
-const numberBtns = document.querySelectorAll(".btn");
-const operatorBtns = document.querySelectorAll(".operator-btn");
-const equalBtn = document.querySelector(".answer-btn");
-const clearBtn = document.querySelector(".clear-btn");
+const numberButtons = document.querySelectorAll(".number-btn");
+const operatorButtons = document.querySelectorAll(".operator-btn");
+const equalButton = document.querySelector(".answer-btn");
+const clearButton = document.querySelector(".clear-btn");
 
-numberBtns.forEach(btn => (
-    btn.addEventListener('click', () => {
-        equation.textContent += btn.textContent;
-    })
-));
+numberButtons.forEach(button => 
+    button.addEventListener('click', () => appendNum(button.textContent))    
+);
+
+function appendNum(number) {
+    if (number.textContent === "0" || shouldReset) {
+        resetCalculator();
+    }
+    currentEquation.textContent += number;
+}
 
 operatorBtns.forEach(btn => (
     btn.addEventListener('click', () => {
