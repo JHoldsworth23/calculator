@@ -1,10 +1,10 @@
 let firstOperand = '';
 let secondOperand = '';
-let currentOperator = '';
+let currentOperator = null;
 let shouldReset = false;
 
-const currentEquation = document.querySelector(".equation");
-const answer = document.querySelector(".answer");
+const currentEquation = document.querySelector(".number-display");
+const equationDisplay = document.querySelector(".equation-display");
 
 const numberButtons = document.querySelectorAll(".number-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
@@ -15,11 +15,23 @@ numberButtons.forEach(button =>
     button.addEventListener('click', () => appendNum(button.textContent))    
 );
 
+operatorButtons.forEach(button => 
+    button.addEventListener('click', () => setOperation(button.textContent))
+);
+
 function appendNum(number) {
     if (currentEquation.textContent === "0" || shouldReset) {
         resetCalculator();
     }
     currentEquation.textContent += number;
+}
+
+function setOperation(operator) {
+    if (currentOperator !== null) calculate();
+    firstOperand = currentEquation.textContent;
+    currentOperator = operator;
+    equationDisplay.textContent = `${firstOperand} ${currentOperator}`;
+    shouldReset = true;
 }
 
 function resetCalculator() {
