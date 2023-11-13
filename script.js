@@ -1,3 +1,7 @@
+let firstOperand;
+let operator;
+let secondOperand;
+
 const add = (numA, numB) => numA + numB;
 const subtract = (numA, numB) => numA - numB;
 const multiply = (numA, numB) => numA * numB;
@@ -27,12 +31,6 @@ clearBtn.addEventListener('click', () => {
     equation.textContent = '';
 })
 
-// user input in the calculator
-let firstOperand;
-let operator;
-let secondOperand;
-
-// create an "operate" function to call the function 
 function operate() {
     const calculation = {
         "+": add(firstOperand, secondOperand),
