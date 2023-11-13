@@ -1,3 +1,8 @@
+let firstOperand = '';
+let secondOperand = '';
+let currentOperator = '';
+let shouldReset = false;
+
 const add = (numA, numB) => numA + numB;
 const subtract = (numA, numB) => numA - numB;
 const multiply = (numA, numB) => numA * numB;
@@ -28,7 +33,7 @@ clearBtn.addEventListener('click', () => {
     equation.textContent = '';
 })
 
-function operate(firstOperand, operator, secondOperand) {
+function operate() {
     const calculation = {
         "+": add(firstOperand, secondOperand),
         "-": subtract(firstOperand, secondOperand),
@@ -41,7 +46,11 @@ function operate(firstOperand, operator, secondOperand) {
 function calculate() {
     equation.textContent += ' = ';
     equation.textContent = `${equation.textContent}`;
-    
+
+    firstOperand = parseFloat(equationArray[0]);
+    secondOperand = parseFloat(equationArray[2]);
+    currentOperator = equationArray[1]
+
     const equationArray = equation.textContent.split(" ");
-    answer.textContent = `${operate(parseFloat(equationArray[0]), equationArray[1], parseFloat(equationArray[2]))}`;
+    answer.textContent = `${operate()}`;
 }
