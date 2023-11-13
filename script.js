@@ -19,6 +19,9 @@ operatorButtons.forEach(button =>
     button.addEventListener('click', () => setOperation(button.textContent))
 );
 
+equalButton.addEventListener('click', calculate);
+clearButton.addEventListener('click', clearScreen);
+
 function appendNum(number) {
     if (currentEquation.textContent === "0" || shouldReset) {
         resetCalculator();
@@ -39,41 +42,37 @@ function resetCalculator() {
     shouldReset = false;
 }
 
-operatorBtns.forEach(btn => (
-    btn.addEventListener('click', () => {
-        equation.textContent += ` ${btn.textContent} `;
-    })
-));
+function clearScreen() {
+    currentEquation.textContent = '0';
+    equationDisplay.textContent = '';
+    firstOperand = '';
+    secondOperand = '';
+    currentOperator = null;
+}
 
-equalBtn.addEventListener('click', calculate);
-
-clearBtn.addEventListener('click', () => {
-    equation.textContent = '';
-})
+function calculate() {
+    if (currentOperator === null || shouldReset) return;
+    if (currentOperator === "÷" && currentEquation.textContent === "0") {
+        alert("You can't divide by 0!");
+        return;
+    }
+    secondOperand = currentEquation.textContent;
+    currentEquation.textContent = operate(firstOperand, currentOperator, secondOperand);
+    equationDisplay.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
+    currentOperator = null;
+}
 
 const add = (numA, numB) => numA + numB;
 const subtract = (numA, numB) => numA - numB;
 const multiply = (numA, numB) => numA * numB;
 const divide = (numA, numB) => numA / numB;
 
-function operate() {
+function operate(firstOperand, currentOperator, secondOperand) {
     const calculation = {
         "+": add(firstOperand, secondOperand),
         "-": subtract(firstOperand, secondOperand),
         "x": multiply(firstOperand, secondOperand),
         "÷": divide(firstOperand, secondOperand)
     };
-    return calculation[operator];
-}
-
-function calculate() {
-    equation.textContent += ' = ';
-    equation.textContent = `${equation.textContent}`;
-
-    firstOperand = parseFloat(equationArray[0]);
-    secondOperand = parseFloat(equationArray[2]);
-    currentOperator = equationArray[1];
-
-    const equationArray = equation.textContent.split(" ");
-    answer.textContent = `${operate()}`;
+    return calculation[currentOperator];
 }
