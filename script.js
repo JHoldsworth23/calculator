@@ -22,8 +22,7 @@ operatorButtons.forEach(button =>
 
 equalButton.addEventListener('click', calculate);
 clearButton.addEventListener('click', clearScreen);
-
-pointButton.addEventListener('click', () => appendDecimalPoint);
+pointButton.addEventListener('click', appendDecimalPoint);
 
 function appendNum(number) {
     if (currentEquation.textContent === "0" || shouldReset) {
@@ -54,7 +53,12 @@ function clearScreen() {
 }
 
 function appendDecimalPoint() {
-    
+    if (shouldReset) resetCalculator();
+    if (currentEquation.textContent === '') {
+        currentEquation.textContent = '0';
+    }
+    if (currentEquation.textContent.includes(".")) return;
+    currentEquation.textContent += '.'
 }
 
 function calculate() {
