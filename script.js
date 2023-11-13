@@ -13,6 +13,8 @@ const clearButton = document.querySelector(".clear-btn");
 const pointButton = document.querySelector(".dot-btn");
 const deleteButton = document.querySelector(".delete-btn");
 
+window.addEventListener('keydown', keyboardInput);
+
 numberButtons.forEach(button => 
     button.addEventListener('click', () => appendNum(button.textContent))    
 );
@@ -83,6 +85,21 @@ function calculate() {
 
 function fourDecimalPlaces(answer) {
     return Math.floor(answer * 10000) / 10000;
+}
+
+function keyboardInput(event) {
+    if (event.key >= 0 && event.key <= 9) appendNum(event.key)
+    if (event.key === ".") appendDecimalPoint();
+    if (event.key === "Enter" || event.key === "=") calculate();
+    if (event.key === "Backspace") removeLastDigit();
+    if (event.key === "Delete") clearScreen();
+    if (event.key === "+" || event.key === "-" || event.key === "*" || event.key === "/") {
+        setOperation(convertMathOperator(event.key))
+    }
+}
+
+function convertMathOperator(keyboardOperator) {
+    return keyboardOperator === "/" ? "÷" : keyboardOperator === "*" ? "x" : keyboardOperator;
 }
 
 const add = (numA, numB) => numA + numB;
