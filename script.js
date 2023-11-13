@@ -11,6 +11,7 @@ const operatorButtons = document.querySelectorAll(".operator-btn");
 const equalButton = document.querySelector(".answer-btn");
 const clearButton = document.querySelector(".clear-btn");
 const pointButton = document.querySelector(".dot-btn");
+const deleteButton = document.querySelector(".delete-btn");
 
 numberButtons.forEach(button => 
     button.addEventListener('click', () => appendNum(button.textContent))    
@@ -23,6 +24,7 @@ operatorButtons.forEach(button =>
 equalButton.addEventListener('click', calculate);
 clearButton.addEventListener('click', clearScreen);
 pointButton.addEventListener('click', appendDecimalPoint);
+deleteButton.addEventListener('click', removeLastDigit)
 
 function appendNum(number) {
     if (currentEquation.textContent === "0" || shouldReset) {
@@ -50,6 +52,10 @@ function clearScreen() {
     firstOperand = '';
     secondOperand = '';
     currentOperator = null;
+}
+
+function removeLastDigit() {
+    currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
 }
 
 function appendDecimalPoint() {
