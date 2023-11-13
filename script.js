@@ -8,7 +8,8 @@ const multiply = (numA, numB) => numA * numB;
 const divide = (numA, numB) => numA / numB;
 
 const equation = document.querySelector(".equation");
-const previousEquation = document.querySelector(".previous-answer");
+const answer = document.querySelector(".answer");
+
 const numberBtns = document.querySelectorAll(".btn");
 numberBtns.forEach(btn => (
     btn.addEventListener('click', () => {
@@ -46,6 +47,6 @@ function calculate() {
     firstOperand = parseFloat(equationArray[0]);
     operator = equationArray[1];
     secondOperand = parseFloat(equationArray[2]);
-    previousEquation.textContent = `${equation.textContent} = ${operate()}`;
-    equation.textContent = '';
+    answer.textContent = `${operate()}`;
+    equation.textContent = `${equation.textContent}`;
 }
