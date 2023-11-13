@@ -1,0 +1,23 @@
+body {
+    background-color: #DDD0C8;
+    font-family:'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-body {
+    background-color: #E7473C;
+    padding: 20px;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+}
+
+.display-screen {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
