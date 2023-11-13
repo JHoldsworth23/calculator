@@ -57,9 +57,15 @@ function calculate() {
         return;
     }
     secondOperand = currentEquation.textContent;
-    currentEquation.textContent = operate(parseFloat(firstOperand), currentOperator, parseFloat(secondOperand));
+    currentEquation.textContent = fourDecimalPlaces(
+        operate(parseFloat(firstOperand), currentOperator, parseFloat(secondOperand))
+    );
     equationDisplay.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
     currentOperator = null;
+}
+
+function fourDecimalPlaces(answer) {
+    return Math.floor(answer * 10000) / 10000;
 }
 
 const add = (numA, numB) => numA + numB;
