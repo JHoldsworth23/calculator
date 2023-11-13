@@ -16,10 +16,15 @@ numberButtons.forEach(button =>
 );
 
 function appendNum(number) {
-    if (number.textContent === "0" || shouldReset) {
+    if (currentEquation.textContent === "0" || shouldReset) {
         resetCalculator();
     }
     currentEquation.textContent += number;
+}
+
+function resetCalculator() {
+    currentEquation.textContent = '';
+    shouldReset = false;
 }
 
 operatorBtns.forEach(btn => (
