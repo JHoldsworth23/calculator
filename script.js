@@ -57,7 +57,7 @@ function calculate() {
         return;
     }
     secondOperand = currentEquation.textContent;
-    currentEquation.textContent = operate(firstOperand, currentOperator, secondOperand);
+    currentEquation.textContent = operate(parseFloat(firstOperand), currentOperator, parseFloat(secondOperand));
     equationDisplay.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
     currentOperator = null;
 }
