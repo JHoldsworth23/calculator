@@ -33,9 +33,7 @@ minusButton.addEventListener('click', convertMinus);
 percentButton.addEventListener('click', convertPercent);
 
 function appendNum(number) {
-    if (currentEquation.textContent === "0" || currentEquation.textContent === "-0" || shouldReset) {
-        resetCalculator();
-    }
+    if (currentEquation.textContent === "0" || currentEquation.textContent === "-0" || shouldReset) resetCalculator();
     currentEquation.textContent += number;
 }
 
@@ -61,19 +59,15 @@ function clearScreen() {
 }
 
 function removeLastDigit() {
-    if (currentEquation.textContent.length === 1) {
-        currentEquation.textContent = "0";
-    } else {
-        currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
-    }
+    currentEquation.textContent.length === 1 
+    ? currentEquation.textContent = "0"
+    : currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
 }
 
 function convertMinus() {
-    if (currentEquation.textContent.includes("-")) {
-        currentEquation.textContent = currentEquation.textContent.slice(1);
-    } else {
-        currentEquation.textContent = `-${currentEquation.textContent}`;
-    }
+    currentEquation.textContent.includes("-") 
+    ? currentEquation.textContent = currentEquation.textContent.slice(1)
+    : currentEquation.textContent = `-${currentEquation.textContent}`;
 }
 
 function convertPercent() {
