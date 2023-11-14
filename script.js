@@ -13,6 +13,7 @@ const clearButton = document.querySelector(".clear-btn");
 const pointButton = document.querySelector(".dot-btn");
 const deleteButton = document.querySelector(".delete-btn");
 const minusButton = document.querySelector(".minus-btn");
+const percentButton = document.querySelector(".percent-btn");
 
 window.addEventListener('keydown', keyboardInput);
 
@@ -29,6 +30,7 @@ clearButton.addEventListener('click', clearScreen);
 pointButton.addEventListener('click', appendDecimalPoint);
 deleteButton.addEventListener('click', removeLastDigit);
 minusButton.addEventListener('click', convertMinus);
+percentButton.addEventListener('click', convertFloat);
 
 function appendNum(number) {
     if (currentEquation.textContent === "0" || currentEquation.textContent === "-0" || shouldReset) {
@@ -68,6 +70,11 @@ function convertMinus() {
     } else {
         currentEquation.textContent = `-${currentEquation.textContent}`;
     }
+}
+
+function convertFloat() {
+    if (currentEquation.textContent.includes(".")) return;
+    currentEquation.textContent = currentEquation.textContent / 100;
 }
 
 function appendDecimalPoint() {
