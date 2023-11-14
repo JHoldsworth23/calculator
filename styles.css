@@ -65,8 +65,11 @@ body {
     padding-left: 5px;
 }
 
-.number-btn, .operator-btn, .answer-btn {
+.btn {
+    cursor: pointer;
     font-size: 20px;
     height: 60px;
     width: 60px;
+    border: 2px solid #121212;
+    border-radius: 50%;
 }
