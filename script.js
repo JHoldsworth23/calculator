@@ -6,14 +6,14 @@ let shouldReset = false;
 const currentEquation = document.querySelector(".number-display");
 const equationDisplay = document.querySelector(".equation-display");
 
-const numberButtons = document.querySelectorAll(".number-btn");
-const operatorButtons = document.querySelectorAll(".operator-btn");
-const equalButton = document.querySelector(".answer-btn");
-const clearButton = document.querySelector(".clear-btn");
-const pointButton = document.querySelector(".dot-btn");
-const deleteButton = document.querySelector(".delete-btn");
-const minusButton = document.querySelector(".minus-btn");
-const percentButton = document.querySelector(".percent-btn");
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
+const equalButton = document.querySelector(".answer");
+const clearButton = document.querySelector(".clear");
+const pointButton = document.querySelector(".dot");
+const deleteButton = document.querySelector(".delete");
+const minusButton = document.querySelector(".minus");
+const percentButton = document.querySelector(".percent");
 
 window.addEventListener('keydown', keyboardInput);
 
