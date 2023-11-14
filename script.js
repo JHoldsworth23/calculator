@@ -131,3 +131,7 @@ function operate(firstOperand, currentOperator, secondOperand) {
     };
     return calculation[currentOperator];
 }
+
+const copyrightYear = document.querySelector(".copyright");
+const date = new Date();
+copyrightYear.textContent = `Copyright © ${date.getFullYear()} JHoldsworth23`
