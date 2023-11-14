@@ -3,6 +3,12 @@ body {
     background-color: #CD5C08;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .calculator-body {
     background-color: #7D7C7C;
     width: 255px;
@@ -22,36 +28,27 @@ body {
 
 .equation-display {
     font-size: 24px;
-    font-weight: bold;
-    color: #002349;
     opacity: 0.5;
     padding: 12px 20px 0;
-    margin: 0;
 }
 
 .number-display {
     font-size: 30px;
+    padding: 8px 20px 8px;
+}
+
+.bold-blue-font {
     font-weight: bold;
     color: #002349;
-    padding: 8px 20px 8px;
     margin: 0;
 }
 
 .buttons-layout {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .function-buttons {
     padding: 20px 0 5px;
-}
-
-.calculate-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .number-grid {
@@ -62,9 +59,7 @@ body {
 }
 
 .operator-buttons {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     gap: 5px;
     padding-left: 5px;
@@ -100,9 +95,6 @@ body {
 }
 
 #footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
