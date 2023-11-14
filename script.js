@@ -50,12 +50,39 @@ function resetCalculator() {
     shouldReset = false;
 }
 
+function calculate() {
+    if (currentOperator === null || shouldReset) return;
+    if (currentOperator === "÷" && currentEquation.textContent === "0") {
+        alert("You can't divide by 0!");
+        return;
+    }
+    secondOperand = currentEquation.textContent;
+    currentEquation.textContent = fourDecimalPlaces(
+        operate(parseFloat(firstOperand), currentOperator, parseFloat(secondOperand))
+    );
+    equationDisplay.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
+    currentOperator = null;
+}
+
+function fourDecimalPlaces(answer) {
+    return Math.floor(answer * 10000) / 10000;
+}
+
 function clearScreen() {
     currentEquation.textContent = '0';
     equationDisplay.textContent = '0';
     firstOperand = '';
     secondOperand = '';
     currentOperator = null;
+}
+
+function appendDecimalPoint() {
+    if (shouldReset) resetCalculator();
+    if (currentEquation.textContent === '') {
+        currentEquation.textContent = '0';
+    }
+    if (currentEquation.textContent.includes(".")) return;
+    currentEquation.textContent += '.'
 }
 
 function removeLastDigit() {
@@ -73,33 +100,6 @@ function convertMinus() {
 function convertPercent() {
     if (currentEquation.textContent.includes(".")) return;
     currentEquation.textContent = currentEquation.textContent / 100;
-}
-
-function appendDecimalPoint() {
-    if (shouldReset) resetCalculator();
-    if (currentEquation.textContent === '') {
-        currentEquation.textContent = '0';
-    }
-    if (currentEquation.textContent.includes(".")) return;
-    currentEquation.textContent += '.'
-}
-
-function calculate() {
-    if (currentOperator === null || shouldReset) return;
-    if (currentOperator === "÷" && currentEquation.textContent === "0") {
-        alert("You can't divide by 0!");
-        return;
-    }
-    secondOperand = currentEquation.textContent;
-    currentEquation.textContent = fourDecimalPlaces(
-        operate(parseFloat(firstOperand), currentOperator, parseFloat(secondOperand))
-    );
-    equationDisplay.textContent = `${firstOperand} ${currentOperator} ${secondOperand}`;
-    currentOperator = null;
-}
-
-function fourDecimalPlaces(answer) {
-    return Math.floor(answer * 10000) / 10000;
 }
 
 function keyboardInput(event) {
