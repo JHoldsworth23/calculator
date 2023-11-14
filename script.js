@@ -12,6 +12,7 @@ const equalButton = document.querySelector(".answer-btn");
 const clearButton = document.querySelector(".clear-btn");
 const pointButton = document.querySelector(".dot-btn");
 const deleteButton = document.querySelector(".delete-btn");
+const minusButton = document.querySelector(".minus-btn");
 
 window.addEventListener('keydown', keyboardInput);
 
@@ -26,10 +27,11 @@ operatorButtons.forEach(button =>
 equalButton.addEventListener('click', calculate);
 clearButton.addEventListener('click', clearScreen);
 pointButton.addEventListener('click', appendDecimalPoint);
-deleteButton.addEventListener('click', removeLastDigit)
+deleteButton.addEventListener('click', removeLastDigit);
+minusButton.addEventListener('click', convertMinus);
 
 function appendNum(number) {
-    if (currentEquation.textContent === "0" || shouldReset) {
+    if (currentEquation.textContent === "0" || currentEquation.textContent === "-0" || shouldReset) {
         resetCalculator();
     }
     currentEquation.textContent += number;
@@ -58,6 +60,14 @@ function clearScreen() {
 
 function removeLastDigit() {
     currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
+}
+
+function convertMinus() {
+    if (currentEquation.textContent.includes("-")) {
+        currentEquation.textContent = currentEquation.textContent.slice(1);
+    } else {
+        currentEquation.textContent = `-${currentEquation.textContent}`;
+    }
 }
 
 function appendDecimalPoint() {
