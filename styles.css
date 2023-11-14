@@ -98,3 +98,26 @@ body {
 .minus:hover, .percent:hover, .operator:hover {
     background-color: #002349;
 }
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #b34d00;
+    color: whitesmoke;
+    gap: 16px;
+    font-size: 20px;
+}
+
+.fa-github {
+    color: whitesmoke;
+    font-size: 24px;
+}
+
+.fa-github:hover {
+    color: #121212;
+}
