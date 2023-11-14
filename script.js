@@ -30,7 +30,7 @@ clearButton.addEventListener('click', clearScreen);
 pointButton.addEventListener('click', appendDecimalPoint);
 deleteButton.addEventListener('click', removeLastDigit);
 minusButton.addEventListener('click', convertMinus);
-percentButton.addEventListener('click', convertFloat);
+percentButton.addEventListener('click', convertPercent);
 
 function appendNum(number) {
     if (currentEquation.textContent === "0" || currentEquation.textContent === "-0" || shouldReset) {
@@ -76,7 +76,7 @@ function convertMinus() {
     }
 }
 
-function convertFloat() {
+function convertPercent() {
     if (currentEquation.textContent.includes(".")) return;
     currentEquation.textContent = currentEquation.textContent / 100;
 }
