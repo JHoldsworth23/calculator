@@ -54,14 +54,18 @@ function resetCalculator() {
 
 function clearScreen() {
     currentEquation.textContent = '0';
-    equationDisplay.textContent = '';
+    equationDisplay.textContent = '0';
     firstOperand = '';
     secondOperand = '';
     currentOperator = null;
 }
 
 function removeLastDigit() {
-    currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
+    if (currentEquation.textContent.length === 1) {
+        currentEquation.textContent = "0";
+    } else {
+        currentEquation.textContent = currentEquation.textContent.toString().slice(0, -1);
+    }
 }
 
 function convertMinus() {
